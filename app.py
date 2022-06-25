@@ -22,4 +22,4 @@ def localhouse():
    return render_template('local+house.html')
 
 if __name__ == '__main__':
-    app.run()
+    app.run(host='3.37.32.74')
