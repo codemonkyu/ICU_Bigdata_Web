@@ -17,9 +17,25 @@ def police():
 def nocover():
    return render_template('nocover.html')
 
-@app.route("/localhouse")
-def localhouse():
-   return render_template('local+house.html')
+@app.route("/house")
+def house():
+   return render_template('house.html')
+
+@app.route("/population")
+def population():
+   return render_template('population.html')  
+
+@app.route("/final_select_dong")
+def final_select_dong():
+   return render_template('final_select_dong.html')  
+
+@app.route("/finally_area")
+def finally_area():
+   return render_template('finally_area.html')    
+
+@app.route("/district")
+def discrict():
+   return render_template('district.html') 
 
 if __name__ == '__main__':
-    app.run(host='0.0.0.0',port=80)
+    app.run()

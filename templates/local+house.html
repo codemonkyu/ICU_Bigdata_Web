@@ -43,6 +43,13 @@
     </style>
   </head>
   <body>
+    <button onclick="home()">메인화면으로</button>
+    <button onclick="playgo(1);">지역구 선벌</button>
+    <button onclick="playgo(2);">행정동 선별 1.</button>
+    <button onclick="playgo(3);">행정동 선별 2.</button>
+    <button onclick="playgo(4);">행정동 선별 3.</button>
+    <button onclick="playgo(5);">최종 선별 지역</button>  
+    </div>
     <div id="deck-container">
     </div>
   </body>
@@ -61,6 +68,20 @@
       tooltip,
       customLibraries
     });
-
+    function home() {
+      location.href='http://127.0.0.1:5000';}
+    let i;
+    function playgo(i) {
+      if (i == 1) {
+        location.href='/district';
+      } else if (i == 2) {
+        location.href="/population";
+      } else if (i == 3) {
+        location.href="/house"
+      } else if (i == 4) {
+        location.href="/final_select_dong"
+      } else {
+        location.href='/finally_area'
+      }}      
   </script>
 </html>
