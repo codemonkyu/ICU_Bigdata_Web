@@ -43,7 +43,7 @@
     </style>
   </head>
   <body>
-    <button onclick="location.href='safe_rank.html'">메인화면으로</button>
+    <button onclick="home()">메인화면으로</button>
     <button onclick="playgo(1);">지역구 선벌</button>
     <button onclick="playgo(2);">행정동 선별 1.</button>
     <button onclick="playgo(3);">행정동 선별 2.</button>
@@ -69,7 +69,7 @@
       customLibraries
     });
     function home() {
-      location.href='http://127.0.0.1:5000';}  
+      location.href='/';}  
     let i;
     function playgo(i) {
       if (i == 1) {
