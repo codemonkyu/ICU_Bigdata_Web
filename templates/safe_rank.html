@@ -50,52 +50,24 @@
     </style>
   </head>
   <body>
-    <div style="display: flex">
-      <div style="width: 50%; background: #343332">
-        <img
-          src="static/images/cctv.jpg"
-          width="40"
-          ,height="60"
-          alt="cctv"
-        /><a href="{{url_for('cctv')}}" style="color: white"
-          >서울시 CCTV 현황</a
-        >
-        <br />
-        <br />
-        <img
-          src="static/images/police.jpg"
-          width="40"
-          ,height="60"
-          alt="police"
-        /><a href="{{url_for('police')}}" style="color: white"
-          >서울시 파출소 현황</a
-        >
-        <br />
-        <br />
-        <p style="color: white">
-          1등급: <span style="color: green">녹색,</span> 2등급 :
-          <span style="color: rgb(0, 4, 255)">파란색,</span> 3등급:<span
-            style="color: rgb(255, 132, 0)"
-            >주황색,</span
-          >
-          4등급:<span style="color: rgb(255, 200, 0)">노란색,</span> 5등급:<span
-            style="color: rgb(255, 0, 0)"
-            >빨간색,</span
-          >
-        </p>
-        <p style="color: white">
-          1등급: 안전 2등급 :비교적 안전 3등급:평균 4등급:위험 5등급:취약
-        </p>
-        <br />
-        <p style="color: green">서울시 안전 구 TOP 5</p>
-        <table
-          border="1"
-          width="100%"
-          height="100"
-          bgcolor="#11a9c1"
-          bordercolor="white"
-          cellspacing="5"
-        >
+    <button onclick="playgo(1);">지역구 선별</button>
+    <button onclick="playgo(2);">행정동 선별 1.</button>
+    <button onclick="playgo(3);">행정동 선별 2.</button>
+    <button onclick="playgo(4);">행정동 선별 3.</button>
+    <button onclick="playgo(5);">행정동 선별 4.</button>
+    <button onclick="playgo(6);">최종 선별 지역</button>  
+    <div  style="display: flex;">
+      <div style="width: 50%; background: #343332;">
+        <img src="static/images/cctv.jpg" width="40",height="60" alt="cctv"><a href = "{{url_for('cctv')}}" style="color: white;">서울시 CCTV 현황</a>
+        <br>
+        <br>
+        <img src="static/images/police.jpg" width="40",height="60" alt="police"><a href = "{{url_for('police')}}" style="color: white;">서울시 파출소 현황</a>
+        <br>
+        <br>
+        <br>
+        <p style="color: white;">1등급: <span style="color:green">안전,</span> 2등급 : <span style="color:rgb(0, 4, 255)">비교적 안전,</span> 3등급:<span style="color:rgb(255, 132, 0)">평균,</span> 4등급:<span style="color:rgb(255, 200, 0)">위험,</span> 5등급:<span style="color:rgb(255, 0, 0)">취약</span> </p>
+        <p style="color: green;">서울시 안전 구 TOP 5</p>
+        <table border ="1" width="100%" height=100 bgcolor=#11a9c1 bordercolor="white" cellspacing="5">
           <tr align="center" bgcolor="white">
             <td><strong>양천구</strong></td>
             <td><strong>성북구</strong></td>
@@ -104,76 +76,65 @@
             <td><strong>은평구</strong></td>
           </tr>
           <tr align="center" bgcolor="white">
-            <td style="color: green">1등급</td>
-            <td style="color: green">1등급</td>
-            <td style="color: green">1등급</td>
-            <td style="color: rgb(0, 4, 255)">2등급</td>
-            <td style="color: rgb(0, 4, 255)">2등급</td>
+            <td style="color: green;">1등급</td>
+            <td style="color: green;">1등급</td>
+            <td style="color: green;">1등급</td>
+            <td style="color: rgb(0, 4, 255);">2등급</td>
+            <td style="color: rgb(0, 4, 255);">2등급</td>
           </tr>
         </table>
-        <br />
-        <p style="color: red">서울시 취약 구 TOP 5</p>
-        <table
-          border="1"
-          width="100%"
-          height="100"
-          bgcolor="#11a9c1"
-          bordercolor="white"
-          cellspacing="5"
-        >
-          <tr align="center" bgcolor="white">
-            <td><strong>중구</strong></td>
-            <td><strong>종로구</strong></td>
-            <td><strong>관악구</strong></td>
-            <td><strong>용산구</strong></td>
-            <td><strong>영등포구</strong></td>
+      <br>
+      <p style="color: red;">서울시 취약 구 TOP 5</p>
+      <table border ="1" width="100%" height=100 bgcolor=#11a9c1 bordercolor="white" cellspacing="5">
+        <tr align="center" bgcolor="white">
+          <td><strong>중구</strong></td>
+          <td><strong>종로구</strong></td>
+          <td><strong>관악구</strong></td>
+          <td><strong>용산구</strong></td>
+          <td><strong>영등포구</strong></td>
+        </tr>
+        <tr align="center" bgcolor="white">
+          <td style="color: rgb(255, 0, 0);">5등급</td>
+          <td style="color: rgb(255, 0, 0);">5등급</td>
+          <td style="color: rgb(255, 200, 0);">4등급</td>
+          <td style="color: rgb(255, 200, 0);">4등급</td>
+          <td style="color: rgb(255, 200, 0);">4등급</td>
+        </tr>
+      </table>
+      <p style="color: white;">취약구 선정 과정</p>
+      <table bordercolor = "red" width="100%">
+        <thead>
+          <tr bordercolor = "red">
+            <th style="color: red;" text-align="center">위해 지표</th>
+            <th style="color: yellow;" text-align="center">취약 지표</th>
+            <th style="color: green;" text-align="center">경감 지표</th>
           </tr>
-          <tr align="center" bgcolor="white">
-            <td style="color: rgb(255, 0, 0)">5등급</td>
-            <td style="color: rgb(255, 0, 0)">5등급</td>
-            <td style="color: rgb(255, 200, 0)">4등급</td>
-            <td style="color: rgb(255, 200, 0)">4등급</td>
-            <td style="color: rgb(255, 200, 0)">4등급</td>
+        </thead>
+        <tfoot>
+          <tr>
+            <td style="color: white;" text-align="center">범죄건수</td>
+            <td style="color: white;" text-align="center">집객시설 수</td>
+            <td style="color: white;" text-align="center">경찰관서 수</td>
           </tr>
-        </table>
-        <p style="color: white">취약구 선정 과정</p>
-        <table bordercolor="red" width="100%">
-          <thead>
-            <tr bordercolor="red">
-              <th style="color: red" text-align="center">위해 지표</th>
-              <th style="color: yellow" text-align="center">취약 지표</th>
-              <th style="color: green" text-align="center">경감 지표</th>
-            </tr>
-          </thead>
-          <tfoot>
-            <tr>
-              <td style="color: white" text-align="center">범죄건수</td>
-              <td style="color: white" text-align="center">집객시설 수</td>
-              <td style="color: white" text-align="center">경찰관서 수</td>
-            </tr>
-            <tr>
-              <td style="color: white" text-align="center"></td>
-              <td style="color: white" text-align="center">1인 가구 수</td>
-              <td style="color: white" text-align="center">CCTV 수</td>
-            </tr>
-            <tr>
-              <td style="color: white" text-align="center"></td>
-              <td style="color: white" text-align="center">주점업 수</td>
-              <td style="color: white" text-align="center"></td>
-            </tr>
-          </tfoot>
-        </table>
-        <p style="color: white">
-          위와 같이 지표 선정 후 가중치를 통해 계산("")
-        </p>
-        <button onclick="playgo(1);">지역구 선벌</button>
-        <button onclick="playgo(2);">행정동 선별 1.</button>
-        <button onclick="playgo(3);">행정동 선별 2.</button>
-        <button onclick="playgo(4);">행정동 선별 3.</button>
-        <button onclick="playgo(5);">최종 선별 지역</button>
+          <tr>
+            <td style="color: white;" text-align="center"></td>
+            <td style="color: white;" text-align="center">1인 가구 수</td>
+            <td style="color: white;" text-align="center"> CCTV 수</td>
+          </tr>
+          <tr>
+            <td style="color: white;" text-align="center"></td>
+            <td style="color: white;" text-align="center">주점업 수</td>
+            <td style="color: white;" text-align="center"></td>
+          </tr>
+        </tfoot>
+      </table>
+      <p style="color: white;">안전지수 = 100-(위해지표(50%) + 취약지표(20%) - 경감지표(30%)</p>
       </div>
-      <div id="deck-container" style="flex-grow: 1"></div>
+    <div id="deck-container"  style="flex-grow: 1;">
+      
+
     </div>
+  </div>
   </body>
   <script>
     const jsonInput = {
@@ -1896,6 +1857,8 @@
       xhr.open("GET", "/nocover", true);
       xhr.send();
     }
+    function home() {
+        location.href='/';}  
     let i;
     function playgo(i) {
       if (i == 1) {
@@ -1905,6 +1868,8 @@
       } else if (i == 3) {
         location.href = "/house";
       } else if (i == 4) {
+        location.href = "/nocover";
+      } else if (i == 5) {
         location.href = "/final_select_dong";
       } else {
         location.href = "/finally_area";
